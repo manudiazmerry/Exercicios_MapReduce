@@ -1,0 +1,26 @@
+
+Non esquezas darlle permiso de execución aos scripts mapper.py e reducer.py:
+(y a los nuevos creados para cada ejercicio)
+
+	chmod +x script_mapper.py script_reducer.py
+	
+	chmod +x *.py
+	
+Executa o mapper e o reducer sobre o ficheiro de proba
+
+	cat testfile.txt | ./script_mapper.py | sort | ./script_reducer.py
+	
+	
+Para lanzar o proceso en Hadoop é necesario utilizar a ferramenta Streaming, que permite executar scripts noutras linguaxes diferentes a java. A sintaxe sería a seguinte:
+
+	hadoop jar /usr/share/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.3.1.jar
+	-input input/purchases.txt
+	-output fichero_salida
+	-mapper /home/hduser/script_mapper.py
+	-reducer /home/hduser/script_reducer.py
+	
+poner todo seguido en la misma línea
+para cada ejercicio:
+actualizar nombres de scripts mapper y reducer
+actualizar nombre de fichero de salida (si ya existe da error, no se sobreescribe)
+
